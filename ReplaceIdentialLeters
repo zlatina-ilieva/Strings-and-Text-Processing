@@ -1,0 +1,16 @@
+/*
+Write a program that reads a string from the console and prints all different letters in the string along with information 
+how many times each letter is found. 
+*/
+
+using System;
+using System.Text.RegularExpressions;
+
+class ReplaceIdentialLeters
+{
+    static void Main(string[] args)
+    {
+        string str = "aaaaabbbbbcdddeeeedssaa"; 
+        Console.WriteLine(Regex.Replace(str, @"(\w)\1+", "$1"));
+    }
+}
