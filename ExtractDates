@@ -1,0 +1,23 @@
+/*
+Write a program that extracts from a given text all dates that match the format DD.MM.YYYY. 
+Display them in the standard date format for Canada.
+*/
+
+using System;
+using System.Globalization;
+using System.Text.RegularExpressions;
+
+class ExtractDates
+{
+    static void Main()
+    {
+        string format = "dd.MM.yyyy";
+        string text = " i tuka trqbva da ima nqkakvi dati kato 12.02.2013 i nqkakvi drugi 02.15.12";
+        foreach (var extracted in Regex.Matches(text, @"\d{2}.\d{2}.\d{4}"))
+        {
+            string extractedToString = Convert.ToString(extracted);
+            DateTime date = DateTime.ParseExact(extractedToString, format, CultureInfo.InvariantCulture);
+            Console.WriteLine(date.ToString(CultureInfo.GetCultureInfo("en-CA")));
+        }
+    }
+}
